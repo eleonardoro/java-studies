@@ -3,6 +3,7 @@ package lambda.stream.api;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Main {
 
@@ -27,8 +28,22 @@ public class Main {
 //	
 //		System.out.println(numbers);
 		
-		Operator op = (x, y) -> x * y;
-		System.out.println(op.execute(3, 4));
+//		Operator op = (x, y) -> x * y;
+//		System.out.println(op.execute(3, 4));
+//		
+//		Operator op = (x, y) -> x + y;
+		
+		List<String> words = List.of("CARLOS", "JOSÉ", "JOÃO", "JOANA", "MARIA", "CELSO");
+		
+		List<String> filteredWords = words.stream()
+		.filter(w -> w.startsWith("J"))
+		.map(w -> w.toLowerCase())
+		.collect(Collectors.toList());
+		
+		System.out.println(filteredWords);
+		
+//		filteredWords.stream().forEach(w -> System.out.println(w));
+		filteredWords.forEach(w -> System.out.println(w));
 	}
 
 }
