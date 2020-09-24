@@ -33,25 +33,33 @@ public class Main {
 //		
 //		Operator op = (x, y) -> x + y;
 		
-		List<String> words = List.of("CARLOS", "JOSÉ", "JOÃO", "JOANA", "MARIA", "CELSO");
-		
-		List<String> filteredWords = words.stream()
-		.filter(w -> w.startsWith("J"))
-		.map(w -> w.toLowerCase())
-		.collect(Collectors.toList());
-		
-		System.out.println(filteredWords);
-		
+//		List<String> words = List.of("CARLOS", "JOSÉ", "JOÃO", "JOANA", "MARIA", "CELSO");
+//		
+//		List<String> filteredWords = words.stream()
+//		.filter(w -> w.startsWith("J"))
+//		.map(w -> w.toLowerCase())
+//		.collect(Collectors.toList());
+//		
+//		System.out.println(filteredWords);
+//		
 //		filteredWords.stream().forEach(w -> System.out.println(w));
-		filteredWords.forEach(w -> System.out.println(w));
+//		filteredWords.forEach(w -> System.out.println(w));
+//		
+//		List<String> filteredWords2 = words.stream()
+//				.filter(w -> w.startsWith("J"))
+//				.map(String::toLowerCase)
+//				.collect(Collectors.toList());
+//				
+//		filteredWords.forEach(System.out::println);
+	
+		List<Car> cars = List.of(new Car("BMW", 12000), new Car("Renault", 85000), new Car("VW", 70000));
 		
-		List<String> filteredWords2 = words.stream()
-				.filter(w -> w.startsWith("J"))
-				.map(String::toLowerCase)
-				.collect(Collectors.toList());
-				
-		filteredWords.forEach(System.out::println);
+		cars.stream()
+		.sorted((c1, c2) -> Double.valueOf(c1.getPrice()).compareTo(c2.getPrice()))
+		.map(c -> new Car(c.getBrand().toLowerCase(), c.getPrice()))
+		//.peek(c -> c.addTax())
+		.peek(Car::addTax)
+		.forEach(System.out::println);
 		
 	}
-
 }
