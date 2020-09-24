@@ -3,9 +3,14 @@ package lambda.stream.api;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class Main {
+	
+
+	private static final Map<String, Integer> PEOPLE = Map.of("pedro", 15, "maria", 20, "paulo", 25, "jorge", 10);
 
 	public static void main(String[] args) {
 
@@ -51,15 +56,34 @@ public class Main {
 //				.collect(Collectors.toList());
 //				
 //		filteredWords.forEach(System.out::println);
+//		List<Car> cars = List.of(new Car("BMW", 12000), new Car("Renault", 85000), new Car("VW", 70000));
+//		
+//		cars.stream()
+//		.sorted((c1, c2) -> Double.valueOf(c1.getPrice()).compareTo(c2.getPrice()))
+//		.map(c -> new Car(c.getBrand().toLowerCase(), c.getPrice()))
+//		//.peek(c -> c.addTax())
+//		.peek(Car::addTax)
+//		.forEach(System.out::println);
+
+		Optional<Integer> opt = get("pedro");
+		
+		int age = opt.orElse(0);
+		
+		System.out.println(age);
+		
+		int age2 = opt.orElseThrow();
+		//int age3 = opt.orElseThrow(() -> new IllegalArgumentException());
+		int age3 = opt.orElseThrow(IllegalArgumentException::new);
+		
+		opt.ifPresent(i -> System.out.println(i));
+		opt.ifPresentOrElse(
+			i -> System.out.println(i), 
+			() -> System.out.println("Não encontrado")
+		);
+		
+	}
 	
-		List<Car> cars = List.of(new Car("BMW", 12000), new Car("Renault", 85000), new Car("VW", 70000));
-		
-		cars.stream()
-		.sorted((c1, c2) -> Double.valueOf(c1.getPrice()).compareTo(c2.getPrice()))
-		.map(c -> new Car(c.getBrand().toLowerCase(), c.getPrice()))
-		//.peek(c -> c.addTax())
-		.peek(Car::addTax)
-		.forEach(System.out::println);
-		
+	private static Optional<Integer> get(String name) {
+		return Optional.ofNullable(PEOPLE.get(name));
 	}
 }
