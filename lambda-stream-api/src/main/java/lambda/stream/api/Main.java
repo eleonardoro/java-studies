@@ -44,6 +44,14 @@ public class Main {
 		
 //		filteredWords.stream().forEach(w -> System.out.println(w));
 		filteredWords.forEach(w -> System.out.println(w));
+		
+		List<String> filteredWords2 = words.stream()
+				.filter(w -> w.startsWith("J"))
+				.map(String::toLowerCase)
+				.collect(Collectors.toList());
+				
+		filteredWords.forEach(System.out::println);
+		
 	}
 
 }
