@@ -1,6 +1,7 @@
 package lambda.stream.api;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
@@ -82,13 +83,26 @@ public class Main {
 //			() -> System.out.println("Não encontrado")
 //		);
 		
-		int mult = 2;
+//		int mult = 2;
+//		
+//		IntStream.range(1, 21)
+//		.map(i -> i * mult)
+//		.forEach(System.out::println);
 		
-		IntStream.range(1, 21)
-		.map(i -> i * mult)
-		.forEach(System.out::println);
+		int[] array = List.of(3, 2, 5).stream().mapToInt(Integer::intValue).toArray();
+		System.out.println(multiply(array));
+		System.out.println(findBigger(array));
 		
 	}
+	
+	private static int multiply(int[] array) {
+		return Arrays.stream(array).reduce((x, y) -> x * y).orElse(0);
+	}
+	
+	private static int findBigger(int[] array) {
+		return Arrays.stream(array).reduce((x, y) -> x > y ? x : y).orElse(0);
+		}
+	
 	
 //	private static Optional<Integer> get(String name) {
 //		return Optional.ofNullable(PEOPLE.get(name));
