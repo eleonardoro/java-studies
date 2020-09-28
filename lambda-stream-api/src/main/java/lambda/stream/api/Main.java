@@ -89,19 +89,27 @@ public class Main {
 //		.map(i -> i * mult)
 //		.forEach(System.out::println);
 		
-		int[] array = List.of(3, 2, 5).stream().mapToInt(Integer::intValue).toArray();
-		System.out.println(multiply(array));
-		System.out.println(findBigger(array));
+//		int[] array = List.of(3, 2, 5).stream().mapToInt(Integer::intValue).toArray();
+//		System.out.println(multiply(array));
+//		System.out.println(findBigger(array));
 		
+		String str = "ACBA";
+		
+		String result = str.chars()
+		.map(i -> i - 64)
+		.mapToObj(String::valueOf)
+		.collect(Collectors.joining("-", "[", "]"));
+		
+		System.out.println(result);
 	}
 	
-	private static int multiply(int[] array) {
-		return Arrays.stream(array).reduce((x, y) -> x * y).orElse(0);
-	}
-	
-	private static int findBigger(int[] array) {
-		return Arrays.stream(array).reduce((x, y) -> x > y ? x : y).orElse(0);
-		}
+//	private static int multiply(int[] array) {
+//		return Arrays.stream(array).reduce((x, y) -> x * y).orElse(0);
+//	}
+//	
+//	private static int findBigger(int[] array) {
+//		return Arrays.stream(array).reduce((x, y) -> x > y ? x : y).orElse(0);
+//	}
 	
 	
 //	private static Optional<Integer> get(String name) {
