@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Main {
 	
@@ -65,25 +66,31 @@ public class Main {
 //		.peek(Car::addTax)
 //		.forEach(System.out::println);
 
-		Optional<Integer> opt = get("pedro");
+//		Optional<Integer> opt = get("pedro");
+//		
+//		int age = opt.orElse(0);
+//		
+//		System.out.println(age);
+//		
+//		int age2 = opt.orElseThrow();
+//		//int age3 = opt.orElseThrow(() -> new IllegalArgumentException());
+//		int age3 = opt.orElseThrow(IllegalArgumentException::new);
+//		
+//		opt.ifPresent(i -> System.out.println(i));
+//		opt.ifPresentOrElse(
+//			i -> System.out.println(i), 
+//			() -> System.out.println("Não encontrado")
+//		);
 		
-		int age = opt.orElse(0);
+		int mult = 2;
 		
-		System.out.println(age);
-		
-		int age2 = opt.orElseThrow();
-		//int age3 = opt.orElseThrow(() -> new IllegalArgumentException());
-		int age3 = opt.orElseThrow(IllegalArgumentException::new);
-		
-		opt.ifPresent(i -> System.out.println(i));
-		opt.ifPresentOrElse(
-			i -> System.out.println(i), 
-			() -> System.out.println("Não encontrado")
-		);
+		IntStream.range(1, 21)
+		.map(i -> i * mult)
+		.forEach(System.out::println);
 		
 	}
 	
-	private static Optional<Integer> get(String name) {
-		return Optional.ofNullable(PEOPLE.get(name));
-	}
+//	private static Optional<Integer> get(String name) {
+//		return Optional.ofNullable(PEOPLE.get(name));
+//	}
 }
