@@ -7,14 +7,14 @@
 </h4>
 
 <p align="center">
-    <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/eleonardoro/BlueFood-Java.svg">
-    <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/eleonardoro/BlueFood-Java.svg">
-    <img alt="Repository size" src="https://img.shields.io/github/repo-size/eleonardoro/BlueFood-Java.svg">
-    <a href="https://github.com/eleonardoro/BlueFood-Java/commits/master">
-        <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/eleonardoro/BlueFood-Java.svg">
+    <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/eleonardoro/java-studies.svg">
+    <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/eleonardoro/java-studies.svg">
+    <img alt="Repository size" src="https://img.shields.io/github/repo-size/eleonardoro/java-studies.svg">
+    <a href="https://github.com/eleonardoro/java-studies/commits/master">
+        <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/eleonardoro/java-studies.svg">
     </a>
-    <a href="https://github.com/eleonardoro/BlueFood-Java/issues">
-        <img alt="Repository issues" src="https://img.shields.io/github/issues/eleonardoro/BlueFood-Java.svg">
+    <a href="https://github.com/eleonardoro/java-studies/issues">
+        <img alt="Repository issues" src="https://img.shields.io/github/issues/eleonardoro/java-studies.svg">
     </a>
     <img alt="License" src="https://img.shields.io/badge/license-MIT-yellowgreen">
 </p>
